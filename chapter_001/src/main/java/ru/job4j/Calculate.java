@@ -7,7 +7,7 @@ package ru.job4j;
 * @since 08.05.2018
 */
 
-public class Calculate{
+public class Calculate {
 	
 	/**
 	* Конструктор, вывод строки в консоль.
