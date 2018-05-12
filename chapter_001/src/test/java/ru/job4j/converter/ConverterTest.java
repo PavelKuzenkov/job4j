@@ -16,7 +16,7 @@ public class ConverterTest {
     /**
      * Test rubleToDollar.
      */@Test
-    public void when60RubleToDollarThen1(){
+    public void when60RubleToDollarThen1() {
          Converter converter = new Converter();
          int result = converter.rubleToDollar(60);
          assertThat(result, is(1));
@@ -25,7 +25,7 @@ public class ConverterTest {
     /**
      * Test rubleToEuro.
      */@Test
-    public void when70RubleToEuroThen1(){
+    public void when70RubleToEuroThen1() {
         Converter converter = new Converter();
         int result = converter.rubleToEuro(70);
         assertThat(result, is(1));
