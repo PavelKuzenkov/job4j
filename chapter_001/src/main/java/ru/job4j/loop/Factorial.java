@@ -9,6 +9,12 @@ package ru.job4j.loop;
 
 public class Factorial {
 
+    /**
+     * Метод для вычисления факториала.
+     * @param n число для которого нужно вычислить факториал.
+     * @return факториал.
+     */
+
     public int calc(int n) {
         if (n == 0) {
             return 1;
