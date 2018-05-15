@@ -13,7 +13,7 @@ public class Calculator {
      * Поле для хранения результатов вычислений.
      */
 
-    double result;
+    private double result;
 
     /**
      * Метод add для сложения двух чисенл.
