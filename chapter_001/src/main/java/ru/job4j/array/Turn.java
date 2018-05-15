@@ -9,6 +9,12 @@ package ru.job4j.array;
 
 public class Turn {
 
+    /**
+     * Метод для разворота массива.
+     * @param array исходный массив.
+     * @return перевернутый массив.
+     */
+
     public int[] turn(int[] array) {
         int totalElements = array.length;
         int temp;
