@@ -17,12 +17,16 @@ public class Max {
      */
 
     public int max(int first, int second) {
-        if (first > second) {
-            return first;
-        } else {
-            return second;
-        }
+        return first > second ? first : second;
     }
+
+    /**
+     * Нахождение большего из трех чисел.
+     * @param first первое число.
+     * @param second второе число.
+     * @param third третье число.
+     * @return максимум.
+     */
 
     public int max(int  first, int second, int third) {
         int temp = max(first, second);
