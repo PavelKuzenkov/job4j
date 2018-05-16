@@ -6,7 +6,6 @@ package ru.job4j.condition;
  * @author Кузенков Павел
  * @since 12.05.2018
  */
-
 public class Point {
     private int x;
     private int y;
@@ -16,7 +15,6 @@ public class Point {
      * @param x координата x.
      * @param y координата y.
      */
-
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
@@ -27,7 +25,6 @@ public class Point {
      * @param that точка А (объект типа Point).
      * @return расстояние между точками А и В.
      */
-
     public double distanceTo(Point that) {
         Point a = this;
         return Math.sqrt(Math.pow(that.x - a.x, 2) + Math.pow(that.y - a.y, 2));
@@ -37,7 +34,6 @@ public class Point {
      * Метод Main. Описание точек А и В, вывод их координат и расстояния между ними в консоль
      * @param args
      */
-
     public static void main(String[] args) {
         Point a = new Point(0, 1);
         Point b = new Point(2, 5);

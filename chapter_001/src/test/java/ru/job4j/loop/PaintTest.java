@@ -11,7 +11,6 @@ import static org.junit.Assert.*;
  * @author Kuzenkov Pavel
  * @since 14.05.2018
  */
-
 public class PaintTest {
 
     /**

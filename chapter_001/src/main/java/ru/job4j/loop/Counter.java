@@ -6,7 +6,6 @@ package ru.job4j.loop;
  * @author Кузенков Павел
  * @since 13.05.2018
  */
-
 public class Counter {
 
     /**
@@ -15,7 +14,6 @@ public class Counter {
      * @param finish второе число.
      * @return сумма четных чисел.
      */
-
     public int add(int start, int finish) {
         int sum = 0;
         for (int i = start; i <= finish; i++) {

@@ -6,7 +6,6 @@ package ru.job4j.loop;
  * @author Кузенков Павел
  * @since 13.05.2018
  */
-
 public class Factorial {
 
     /**
@@ -14,7 +13,6 @@ public class Factorial {
      * @param n число для которого нужно вычислить факториал.
      * @return факториал.
      */
-
     public int calc(int n) {
         if (n == 0) {
             return 1;

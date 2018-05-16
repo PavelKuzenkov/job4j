@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 14.05.2018
  */
-
 public class FindLoopTest {
 
     /**
      * Test findLoop find.
-     */@Test
+     */
+    @Test
     public void whenWeWantFind5Then0() {
          FindLoop findLoop = new FindLoop();
          int[] input = new int[] {5, 23, 10};
@@ -27,7 +27,8 @@ public class FindLoopTest {
 
     /**
      * Test findLoop not find.
-     */@Test
+     */
+    @Test
     public void whenWeWantFind5ThenNotFind() {
         FindLoop findLoop = new FindLoop();
         int[] input = new int[] {5, 23, 10};

@@ -6,7 +6,6 @@ package ru.job4j.max;
  * @author Кузенков Павел
  * @since 13.05.2018
  */
-
 public class Max {
 
     /**
@@ -15,7 +14,6 @@ public class Max {
      * @param second второе число.
      * @return максимум.
      */
-
     public int max(int first, int second) {
         return first > second ? first : second;
     }
@@ -27,7 +25,6 @@ public class Max {
      * @param third третье число.
      * @return максимум.
      */
-
     public int max(int  first, int second, int third) {
         int temp = max(first, second);
         return max(temp, third);

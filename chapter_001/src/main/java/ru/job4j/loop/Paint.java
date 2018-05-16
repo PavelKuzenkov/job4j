@@ -8,7 +8,6 @@ import java.util.function.BiPredicate;
  * @author Кузенков Павел.
  * @since 14.05.2018
  */
-
 public class Paint {
 
     /**
@@ -16,7 +15,6 @@ public class Paint {
      * @param height высота треугольника
      * @return треугольник.
      */
-
     public String rightTrl(int height) {
         return this.loopBy(height, height, (row, column) -> row >= column);
     }
@@ -26,7 +24,6 @@ public class Paint {
      * @param height высота треугольника
      * @return треугольник.
      */
-
     public String leftTrl(int height) {
         return this.loopBy(height, height, (row, column) -> row >= height - column - 1);
     }
@@ -36,7 +33,6 @@ public class Paint {
      * @param height высота пирамиды
      * @return треугольник.
      */
-
     public String pyramid(int height) {
         return this.loopBy(height, 2 * height - 1, (row, column) -> row >= height - column - 1 && row + height - 1 >= column);
     }

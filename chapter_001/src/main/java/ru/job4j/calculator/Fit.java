@@ -6,7 +6,6 @@ package ru.job4j.calculator;
  * @author Кузенков Павел
  * @since 12.05.2018
  */
-
 public class Fit {
 
     /**
@@ -14,7 +13,6 @@ public class Fit {
      * @param height Рост.
      * @return идеальный вес.
      */
-
     public double manWeight(double height) {
         return (height - 100) * 1.15;
     }
@@ -24,7 +22,6 @@ public class Fit {
      * @param height Рост.
      * @return идеальный вес.
      */
-
     public double womanWeight(double height) {
         return (height - 110) * 1.15;
     }

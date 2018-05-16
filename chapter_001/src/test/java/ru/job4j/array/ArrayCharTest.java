@@ -10,7 +10,6 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 15.05.2018
  */
-
 public class ArrayCharTest {
 
     /**

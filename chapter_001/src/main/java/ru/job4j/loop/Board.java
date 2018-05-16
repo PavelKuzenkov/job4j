@@ -6,7 +6,6 @@ package ru.job4j.loop;
  * @author Кузенков Павел.
  * @since 14.05.2018
  */
-
 public class Board {
 
     /**
@@ -15,7 +14,6 @@ public class Board {
      * @param height высота доски.
      * @return шахматная доска.
      */
-
     public String paint(int widht, int height) {
         StringBuilder screen = new StringBuilder();
         String ln = System.lineSeparator();

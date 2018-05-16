@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 15.05.2018
  */
-
 public class MatrixTest {
 
     /**
      * Test multiple 3x3.
-     */@Test
+     */
+    @Test
     public void when3x3() {
          Matrix matrix = new Matrix();
          int[][] result = matrix.multiple(3);

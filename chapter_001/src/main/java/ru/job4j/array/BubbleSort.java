@@ -6,7 +6,6 @@ package ru.job4j.array;
  * @author Кузенков Павел.
  * @since 15.05.2018
  */
-
 public class BubbleSort {
 
     /**
@@ -14,7 +13,6 @@ public class BubbleSort {
      * @param array исходный массив.
      * @return отсортированный массив.
      */
-
     public int[] sort(int[] array) {
         int totalElements = array.length - 1;
         int temp;

@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 13.05.2018
  */
-
 public class MaxTest {
 
     /**
      * Test max first.
-     */@Test
+     */
+    @Test
     public void whenFirstLessSecond() {
          Max max = new Max();
          int result = max.max(1, 2);
@@ -24,7 +24,8 @@ public class MaxTest {
 
     /**
      * Test max second.
-     */@Test
+     */
+    @Test
     public void whenSecondLessFirst() {
         Max max = new Max();
         int result = max.max(2, 1);
@@ -33,7 +34,8 @@ public class MaxTest {
 
     /**
      * Test max third.
-     */@Test
+     */
+    @Test
     public void whenThirdIsMax() {
          Max max = new Max();
          int result = max.max(2, 3, 1);

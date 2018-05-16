@@ -6,7 +6,6 @@ package ru.job4j.array;
  * @author Кузенков Павел.
  * @since 15.05.2018
  */
-
 public class ArrayChar {
     private char[] data;
 

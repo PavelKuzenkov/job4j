@@ -6,7 +6,6 @@ package ru.job4j.array;
  * @author Кузенков Павел.
  * @since 15.05.2018
  */
-
 public class Turn {
 
     /**
@@ -14,7 +13,6 @@ public class Turn {
      * @param array исходный массив.
      * @return перевернутый массив.
      */
-
     public int[] turn(int[] array) {
         int totalElements = array.length;
         int temp;

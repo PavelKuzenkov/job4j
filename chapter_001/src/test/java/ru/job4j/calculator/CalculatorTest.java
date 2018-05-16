@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 11.05.2018
  */
-
 public class CalculatorTest {
 
     /**
      * Test add.
-     */@Test
+     */
+    @Test
     public void whenAddOnePlusOneThenTwo() {
         Calculator calc = new Calculator();
         calc.add(1d, 1d);
@@ -26,7 +26,8 @@ public class CalculatorTest {
 
     /**
      * Test subtract.
-     */@Test
+     */
+    @Test
     public void whenSubtractThreeMinusOneThenTwo() {
         Calculator calc = new Calculator();
         calc.subtract(3d, 1d);
@@ -37,7 +38,8 @@ public class CalculatorTest {
 
     /**
      * Test div.
-     */@Test
+     */
+    @Test
     public void whenDivFourDivideTwoThenTwo() {
         Calculator calc = new Calculator();
         calc.div(4d, 2d);
@@ -48,7 +50,8 @@ public class CalculatorTest {
 
     /**
      * Test multiple.
-     */@Test
+     */
+    @Test
     public void whenMultipleTwoMultiplyTwoThenFour() {
         Calculator calc = new Calculator();
         calc.multiple(2d, 2d);

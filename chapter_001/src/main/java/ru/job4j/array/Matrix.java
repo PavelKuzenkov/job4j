@@ -6,7 +6,6 @@ package ru.job4j.array;
  * @author Кузенков Павел.
  * @since 15.05.2018
  */
-
 public class Matrix {
 
     /**
@@ -14,7 +13,6 @@ public class Matrix {
      * @param size размер таблицы.
      * @return таблица умножения.
      */
-
     public int[][] multiple(int size) {
         int[][] table = new int[size][size];
         for (int i = 0; i != size; i++) {

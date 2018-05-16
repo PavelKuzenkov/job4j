@@ -6,7 +6,6 @@ package ru.job4j.converter;
  * @author Кузенков Павел
  * @since 12.05.2018
  */
-
 public class Converter {
 
     /**
@@ -14,7 +13,6 @@ public class Converter {
      * @param value рубли.
      * @return евро.
      */
-
     public int rubleToEuro(int value) {
         return value / 70;
     }
@@ -24,7 +22,6 @@ public class Converter {
      * @param value рубли.
      * @return доллары.
      */
-
     public int rubleToDollar(int value) {
         return value / 60;
     }
@@ -34,7 +31,6 @@ public class Converter {
      * @param value евро.
      * @return рубли.
      */
-
     public int euroToRuble(int value) {
         return value * 70;
     }
@@ -44,7 +40,6 @@ public class Converter {
      * @param value доллары.
      * @return рубли.
      */
-
     public int dollarToRuble(int value) {
         return value * 60;
     }

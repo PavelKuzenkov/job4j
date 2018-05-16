@@ -6,7 +6,6 @@ package ru.job4j.loop;
  * @author Кузенков Павел.
  * @since 14.05.2018
  */
-
 public class FindLoop {
      public int indexOf(int[] data, int el) {
          int rst = -1;

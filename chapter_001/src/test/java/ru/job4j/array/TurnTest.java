@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 15.05.2018
  */
-
 public class TurnTest {
 
     /**
      * Test even amount.
-     */@Test
+     */
+    @Test
     public void whenTurnArrayWithEvenAmountOfElementsThenTurnedArray() {
          Turn turn = new Turn();
          int[] input = new int[] {1, 2, 3, 4};
@@ -26,7 +26,8 @@ public class TurnTest {
 
     /**
      * Test not even amount.
-     */@Test
+     */
+    @Test
     public void whenTurnArrayWithNotEvenAmountOfElementsThenTurnedArray() {
         Turn turn = new Turn();
         int[] input = new int[] {2, 5, 10, 21, 42};

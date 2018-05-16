@@ -11,12 +11,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 12.05.2018
  */
-
 public class FitTest {
 
     /**
      * Test manWeight.
-     */@Test
+     */
+    @Test
     public void manWeight() {
          Fit fit = new Fit();
          double weight = fit.manWeight(180);
@@ -25,7 +25,8 @@ public class FitTest {
 
     /**
      * Test womanWeight.
-     */@Test
+     */
+    @Test
     public void womanWeight() {
         Fit fit = new Fit();
         double weight = fit.womanWeight(170);

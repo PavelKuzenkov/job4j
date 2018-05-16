@@ -6,7 +6,6 @@ package ru.job4j.array;
  * @author Кузенков Павел.
  * @since 14.05.2018
  */
-
 public class Square {
 
     public int[] calculate(int bound) {

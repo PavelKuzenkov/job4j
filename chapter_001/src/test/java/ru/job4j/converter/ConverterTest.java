@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 12.05.2018
  */
-
 public class ConverterTest {
 
     /**
      * Test rubleToDollar.
-     */@Test
+     */
+    @Test
     public void when60RubleToDollarThen1() {
          Converter converter = new Converter();
          int result = converter.rubleToDollar(60);
@@ -24,7 +24,8 @@ public class ConverterTest {
 
     /**
      * Test rubleToEuro.
-     */@Test
+     */
+    @Test
     public void when70RubleToEuroThen1() {
         Converter converter = new Converter();
         int result = converter.rubleToEuro(70);
@@ -33,7 +34,8 @@ public class ConverterTest {
 
     /**
      * Test dollarToRuble.
-     */@Test
+     */
+    @Test
     public void when1DollarToRubleThen60() {
          Converter converter = new Converter();
          int result = converter.dollarToRuble(1);
@@ -42,7 +44,8 @@ public class ConverterTest {
 
     /**
      * Test euroToRuble.
-     */@Test
+     */
+    @Test
     public void when1EuroToRubleThen70() {
          Converter converter = new Converter();
          int result = converter.euroToRuble(1);

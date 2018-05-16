@@ -6,13 +6,11 @@ package ru.job4j.calculator;
  * @author Кузенков Павел
  * @since 11.05.2018
  */
-
 public class Calculator {
 
     /**
      * Поле для хранения результатов вычислений.
      */
-
     private double result;
 
     /**
@@ -20,7 +18,6 @@ public class Calculator {
      * @param first первое число.
      * @param second второе число.
      */
-
     public void add(double first, double second) {
         this.result = first + second;
     }
@@ -30,7 +27,6 @@ public class Calculator {
      * @param first первое число.
      * @param second второе число.
      */
-
     public void subtract(double first, double second) {
         this.result = first - second;
     }
@@ -40,7 +36,6 @@ public class Calculator {
      * @param first первое число.
      * @param second второе число.
      */
-
     public void div(double first, double second) {
         this.result = first / second;
     }
@@ -50,7 +45,6 @@ public class Calculator {
      * @param first первое число.
      * @param second второе число.
      */
-
     public void multiple(double first, double second) {
         this.result = first * second;
     }
@@ -59,7 +53,6 @@ public class Calculator {
      * Метод getResult возвращает значение поля result.
      * @return result
      */
-
     public double getResult() {
         return this.result;
     }

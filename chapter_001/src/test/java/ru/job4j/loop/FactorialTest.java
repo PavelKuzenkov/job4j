@@ -11,12 +11,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 13.05.2018
  */
-
 public class FactorialTest {
 
     /**
      * Test calc n not zero.
-     */@Test
+     */
+    @Test
     public void when5ThenFactorial120() {
          Factorial factorial = new Factorial();
          int result = factorial.calc(5);
@@ -25,7 +25,8 @@ public class FactorialTest {
 
     /**
      * Test calc n = 0.
-     */@Test
+     */
+    @Test
     public void when0ThenFactorial1() {
         Factorial factorial = new Factorial();
         int result = factorial.calc(0);

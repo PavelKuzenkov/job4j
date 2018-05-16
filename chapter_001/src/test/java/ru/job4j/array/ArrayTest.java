@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 14.05.2018
  */
-
 public class ArrayTest {
 
     /**
      * Test calculate bound 3.
-     */@Test
+     */
+    @Test
     public void whenBound3Then149() {
         int bound = 3;
         Square square = new Square();
@@ -26,7 +26,8 @@ public class ArrayTest {
 
     /**
      * Test calculate bound 5.
-     */@Test
+     */
+    @Test
     public void whenBound5Then1491625() {
         int bound = 5;
         Square square = new Square();

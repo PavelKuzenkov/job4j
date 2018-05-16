@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 14.05.2018
  */
-
 public class BoardTest {
 
     /**
      * Test paint 3x3.
-     */@Test
+     */
+    @Test
     public void when3x3() {
          Board board = new Board();
          String result = board.paint(3, 3);
@@ -26,7 +26,8 @@ public class BoardTest {
 
     /**
      * Test paint 5x4.
-     */@Test
+     */
+    @Test
     public void when5x4() {
         Board board = new Board();
         String result = board.paint(5, 4);

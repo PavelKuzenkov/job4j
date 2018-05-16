@@ -11,12 +11,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 13.05.2018
  */
-
 public class CounterTest {
 
     /**
      * Test add
-     */@Test
+     */
+    @Test
     public void whenStart1Finish10Then30() {
         Counter counter = new Counter();
         int result = counter.add(1, 10);

@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 15.05.2018
  */
-
 public class BubbleSortTest {
 
     /**
      *Test sort.
-     */@Test
+     */
+    @Test
     public void whenSortArrayWithTenElementsThenSortedArray() {
          BubbleSort bubbleSort = new BubbleSort();
          int[] input = new int[] {13, 18, 2, 1, 48, 6, 3, 25, 4, 18};
