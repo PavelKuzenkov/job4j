@@ -10,21 +10,14 @@ public class Turn {
 
     /**
      * Метод для разворота массива.
+     *
      * @param array исходный массив.
      * @return перевернутый массив.
      */
     public int[] turn(int[] array) {
         int totalElements = array.length;
-        int temp;
-        if (totalElements % 2 == 0) {
-            for (int i = 0; i != totalElements / 2; i++) {
-                temp = array[i];
-                array[i] = array[totalElements - 1 - i];
-                array[totalElements - 1 - i] = temp;
-            }
-            return array;
-        }
-        for (int i = 0; i != (totalElements - 1) / 2; i++) {
+        int temp = 0;
+        for (int i = 0; i != totalElements / 2; i++) {
             temp = array[i];
             array[i] = array[totalElements - 1 - i];
             array[totalElements - 1 - i] = temp;
@@ -32,3 +25,4 @@ public class Turn {
         return array;
     }
 }
+
