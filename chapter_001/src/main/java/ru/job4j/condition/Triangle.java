@@ -18,7 +18,6 @@ public class Triangle {
      * @param b точка b.
      * @param c точка c.
      */
-
     public Triangle(Point a, Point b, Point c) {
         this.a = a;
         this.b = b;
@@ -60,9 +59,6 @@ public class Triangle {
      * @return
      */
     public boolean exist(double ab, double ac, double bc) {
-        if (ab < (ac + bc) & ac < (bc + ab) & bc < (ab + ac)) {
-            return true;
-        }
-        return false;
+        return ab < (ac + bc) && ac < (bc + ab) && bc < (ab + ac) ? true : false;
     }
 }

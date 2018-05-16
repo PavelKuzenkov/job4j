@@ -11,7 +11,6 @@ import static org.hamcrest.core.Is.is;
  * @author Kuzenkov Pavel
  * @since 13.05.2018
  */
-
 public class TriangleTest {
 
     /**
