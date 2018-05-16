@@ -9,8 +9,7 @@ package ru.job4j.loop;
 public class FindLoop {
      public int indexOf(int[] data, int el) {
          int rst = -1;
-         int totalElements = data.length;
-         for (int index = 0; index != totalElements; index++) {
+         for (int index = 0; index != data.length; index++) {
              if (data[index] == el) {
                  rst = index;
                  break;
