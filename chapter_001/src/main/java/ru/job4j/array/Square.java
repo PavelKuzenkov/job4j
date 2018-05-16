@@ -10,10 +10,8 @@ public class Square {
 
     public int[] calculate(int bound) {
         int[] rst = new int[bound];
-        int value = 1;
-        for (int i = 0; i != bound; i++) {
-            rst[i] = value * value;
-            value++;
+        for (int i = 1; i <= bound; i++) {
+            rst[i - 1] = i * i;
         }
         return rst;
     }

@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
  * @author Kuzenkov Pavel
  * @since 14.05.2018
  */
-public class ArrayTest {
+public class SquareTest {
 
     /**
      * Test calculate bound 3.
