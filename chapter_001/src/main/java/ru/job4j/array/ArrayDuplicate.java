@@ -16,18 +16,18 @@ public class ArrayDuplicate {
      * @return массив без дублей.
      */
     public String[] remote(String[] array) {
-        int totalElementsWithoutDuplicate = array.length;
-        for (int i = 0; i < totalElementsWithoutDuplicate; i++) {
-            for (int j = i + 1; j < totalElementsWithoutDuplicate; j++) {
+        int notDuplicate = array.length;
+        for (int i = 0; i < notDuplicate; i++) {
+            for (int j = i + 1; j < notDuplicate; j++) {
                     if (array [i].equals(array[j])) {
-                        totalElementsWithoutDuplicate--;
-                        for (int numberOfDublicate = j; numberOfDublicate < totalElementsWithoutDuplicate; numberOfDublicate++) {
-                            array[numberOfDublicate] = array[numberOfDublicate + 1];
+                        notDuplicate--;
+                        for (int duplicate = j; duplicate < notDuplicate; duplicate++) {
+                            array[duplicate] = array[duplicate + 1];
                         }
                         j--;
                     }
             }
         }
-        return Arrays.copyOf(array, totalElementsWithoutDuplicate);
+        return Arrays.copyOf(array, notDuplicate);
     }
 }
