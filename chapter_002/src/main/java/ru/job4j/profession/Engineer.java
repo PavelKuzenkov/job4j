@@ -13,6 +13,6 @@ public class Engineer extends Profession {
      * @return дом.
      */
     public House build() {
-
+        return new House();
     }
 }

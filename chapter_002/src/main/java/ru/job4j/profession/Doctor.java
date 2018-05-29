@@ -16,6 +16,6 @@ public class Doctor extends Profession {
      * @return диагноз
      */
     public Diagnose heal(Patient patient) {
-
+        return new Diagnose();
     }
 }

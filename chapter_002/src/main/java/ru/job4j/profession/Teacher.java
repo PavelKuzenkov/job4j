@@ -6,7 +6,7 @@ package ru.job4j.profession;
  * @author Кузенков Павел.
  * @since 25.05.2018
  */
-public class Teacher extends Profession{
+public class Teacher extends Profession {
 
     /**
      * Обучение.
