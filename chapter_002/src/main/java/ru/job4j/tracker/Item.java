@@ -41,6 +41,14 @@ public class Item {
     /**
      * Конструктор класса.
      */
+    public Item(String name, String desc) {
+        this.name = name;
+        this.desc = desc;
+    }
+
+    /**
+     * Конструктор класса.
+     */
     public Item(String name, String desc, long created) {
         this.name = name;
         this.desc = desc;

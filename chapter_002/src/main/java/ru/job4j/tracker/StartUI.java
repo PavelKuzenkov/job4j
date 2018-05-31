@@ -69,7 +69,7 @@ public class StartUI {
         boolean exit = false;
         while (!exit) {
             this.showMenu();
-            String answer = this.input.ask();
+            String answer = this.input.ask("Enter a menu item.");
             switch (answer) {
                 case ADD:
                     this.createItem();
@@ -105,10 +105,8 @@ public class StartUI {
      */
     private void createItem() {
         System.out.println("------------ Добавление новой языки --------------");
-        System.out.print("Введите имя заявки: ");
-        String name = this.input.ask();
-        System.out.print("Введите описание заявки: ");
-        String desc = this.input.ask();
+        String name = this.input.ask("Введите имя заявки: ");
+        String desc = this.input.ask("Введите описание заявки: ");
         Item item = new Item(name, desc);
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
@@ -134,13 +132,10 @@ public class StartUI {
      */
     private void editItem() {
         System.out.println("---------- Замена заявки -------------");
-        System.out.print("Введите имя новой заявки: ");
-        String name = this.input.ask();
-        System.out.print("Введите описание новой заявки: ");
-        String desc = this.input.ask();
+        String name = this.input.ask("Введите имя новой заявки: ");
+        String desc = this.input.ask("Введите описание новой заявки: ");
         Item item = new Item(name, desc);
-        System.out.print("Введите ID заявки которую нужно заменить: ");
-        String id = this.input.ask();
+        String id = this.input.ask("Введите ID заявки которую нужно заменить: ");
         this.tracker.replace(id, item);
         System.out.print("------------ Заявка заменена ------------");
         System.out.println();
@@ -151,8 +146,7 @@ public class StartUI {
      */
     private void deleteItem() {
         System.out.println("---------- Удаление заявки -------------");
-        System.out.print("Введите ID заявки которую нужно удалить: ");
-        String id = this.input.ask();
+        String id = this.input.ask("Введите ID заявки которую нужно удалить: ");
         this.tracker.delete(id);
         System.out.println("---------- Заявка удалена -------------");
         System.out.println();
@@ -163,8 +157,7 @@ public class StartUI {
      */
     private void findById() {
         System.out.println("---------- Поиск заявки по ID -------------");
-        System.out.print("Введите ID заявки: ");
-        String id = this.input.ask();
+        String id = this.input.ask("Введите ID заявки: ");
         Item find = this.tracker.findById(id);
         if (find != null) {
             System.out.println("Заявка найдена.");
@@ -182,8 +175,7 @@ public class StartUI {
      */
     private void findByName() {
         System.out.println("---------- Поиск заявки по ID -------------");
-        System.out.print("Введите ID заявки: ");
-        String name = this.input.ask();
+        String name = this.input.ask("Введите ID заявки: ");
         Item find = this.tracker.findById(name);
         if (find != null) {
             System.out.println("Заявка найдена.");
