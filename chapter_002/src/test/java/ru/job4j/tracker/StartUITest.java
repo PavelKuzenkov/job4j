@@ -1,7 +1,10 @@
 package ru.job4j.tracker;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -12,6 +15,28 @@ import static org.junit.Assert.assertThat;
  * @since 31.05.2018
  */
 public class StartUITest {
+
+    /**
+     * Поле содержит дефолтный вывод в консоль.
+     */
+    private final PrintStream stdout = System.out;
+
+    /**
+     * Буфер для результата.
+     */
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    @Before
+    public void loadOutput() {
+        System.out.println("execute before method");
+        System.setOut(new PrintStream(this.out));
+    }
+
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+        System.out.println("execute after method");
+    }
 
     /**
      * Test createItem method.
@@ -105,5 +130,57 @@ public class StartUITest {
         assertThat(result[0].getDesc(), is("testDescription1"));
         assertThat(result[1].getDesc(), is("testDescription3"));
 
+    }
+
+    /**
+     * Test getAll method.
+     */
+    @Test
+    public void whenGetAllThenReturnAllItems() {
+        Tracker tracker = new Tracker();
+        Item test1 = new Item("test1", "testDescription1");
+        Item test2 = new Item("test2", "testDescription2");
+        tracker.add(test1);
+        tracker.add(test2);
+        Input input = new StubInput(new String[]{"1", "6"});
+        new StartUI(input, tracker).init();
+        assertThat(
+                new String(this.out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append("Меню:\r\n")
+                                .append("0. Add new Item\r\n")
+                                .append("1. Show all items\r\n")
+                                .append("2. Edit item\r\n")
+                                .append("3. Delete item\r\n")
+                                .append("4. Find item by Id\r\n")
+                                .append("5. Find items by name\r\n")
+                                .append("6. Exit Program\r\n")
+                                .append("Select: \r\n")
+//                                .append("Enter a menu item.\r\n")
+                                .append("Заявка №1:\r\n")
+                                .append("Имя: test1\r\n")
+                                .append("Описание: testDescription1\r\n")
+                                .append("ID: " + test1.getId() + "\r\n")
+                                .append("\r\n")
+                                .append("Заявка №2:\r\n")
+                                .append("Имя: test2\r\n")
+                                .append("Описание: testDescription2\r\n")
+                                .append("ID: " + test2.getId() + "\r\n")
+                                .append("\r\n")
+                                .append("Меню:\r\n")
+                                .append("0. Add new Item\r\n")
+                                .append("1. Show all items\r\n")
+                                .append("2. Edit item\r\n")
+                                .append("3. Delete item\r\n")
+                                .append("4. Find item by Id\r\n")
+                                .append("5. Find items by name\r\n")
+                                .append("6. Exit Program\r\n")
+                                .append("Select: ")
+//                                .append("Enter a menu item.")
+                                .append(System.lineSeparator())
+                                .toString()
+                )
+        );
     }
 }
