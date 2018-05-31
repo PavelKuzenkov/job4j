@@ -45,7 +45,7 @@ public class StartUI {
     /**
      * Получение данных от пользователя.
      */
-    private final ConsoleInput input;
+    private final Input input;
 
     /**
      * Хранилище заявок.
@@ -57,7 +57,7 @@ public class StartUI {
      * @param input ввод данных.
      * @param tracker хранилище заявок.
      */
-    public StartUI(ConsoleInput input, Tracker tracker) {
+    public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
@@ -174,15 +174,18 @@ public class StartUI {
      * Поиск по имени.
      */
     private void findByName() {
-        System.out.println("---------- Поиск заявки по ID -------------");
-        String name = this.input.ask("Введите ID заявки: ");
-        Item find = this.tracker.findById(name);
+        System.out.println("---------- Поиск заявки по имени -------------");
+        String name = this.input.ask("Введите имя заявки: ");
+        Item[] find = this.tracker.findByName(name);
         if (find != null) {
-            System.out.println("Заявка найдена.");
-            System.out.println("Имя: " + find.getName());
-            System.out.println("Описание: " + find.getDesc());
-            System.out.println("ID: " + find.getId());
-            System.out.println();
+            for (Item item: find) {
+                System.out.println("Заявка найдена.");
+                System.out.println("Имя: " + item.getName());
+                System.out.println("Описание: " + item.getDesc());
+                System.out.println("ID: " + item.getId());
+                System.out.println();
+            }
+
         } else {
             System.out.println("Заявке не найдена.");
             System.out.println();
