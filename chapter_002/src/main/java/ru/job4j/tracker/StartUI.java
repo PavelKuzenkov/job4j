@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
+
 /**
  *  Class StartUI решение задачи части 002 урок 4 1.
  *
@@ -26,6 +28,11 @@ public class StartUI {
     private final Tracker tracker;
 
     /**
+     * Диапозон пунктов меню.
+     */
+    private int[] range = new int[10];
+
+    /**
      * Конструтор инициализирующий поля.
      * @param input ввод данных.
      * @param tracker хранилище заявок.
@@ -44,8 +51,7 @@ public class StartUI {
         menu.fillActions(this);
         while (!this.exit) {
             menu.show();
-            int key = Integer.valueOf(input.ask("Select: "));
-            menu.select(key);
+            menu.select(input.ask("Select: ", this.range));
         }
     }
 
@@ -56,11 +62,18 @@ public class StartUI {
         this.exit = true;
     }
 
+    public void setRange(int range) {
+        for (int index = 0; index != range; index++) {
+            this.range[index] = index;
+        }
+        this.range = Arrays.copyOf(this.range, range);
+    }
+
     /**
      * Запускт программы.
      * @param args
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }

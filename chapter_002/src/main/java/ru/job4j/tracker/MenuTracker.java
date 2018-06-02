@@ -80,6 +80,7 @@ public class MenuTracker {
         this.actions[4] = new FindByIdItem();
         this.actions[5] = new FindByNameItem();
         this.actions[6] = new Exit(ui);
+        ui.setRange(this.actions.length);
     }
 
     /**
