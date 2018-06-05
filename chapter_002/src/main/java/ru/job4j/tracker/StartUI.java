@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
-
 /**
  *  Class StartUI решение задачи части 002 урок 4 1.
  *
@@ -30,7 +28,7 @@ public class StartUI {
     /**
      * Диапозон пунктов меню.
      */
-    private int[] range = new int[10];
+    private int[] range;
 
     /**
      * Конструтор инициализирующий поля.
@@ -62,11 +60,8 @@ public class StartUI {
         this.exit = true;
     }
 
-    public void setRange(int range) {
-        for (int index = 0; index != range; index++) {
-            this.range[index] = index;
-        }
-        this.range = Arrays.copyOf(this.range, range);
+    public void setRange(int[] range) {
+        this.range = range;
     }
 
     /**

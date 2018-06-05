@@ -3,14 +3,15 @@ package ru.job4j.tracker;
 /**
  * Внешний внутренний класс.
  */
-class EditItem implements UserAction {
+class EditItem extends BaseAction {
 
     /**
-     * Действие пользователя.
-     * @return номер действия в меню.
+     * Конструктор класса.
+     * @param key номер действия.
+     * @param name описание действия.
      */
-    public int key() {
-        return 2;
+    public EditItem(int key, String name) {
+        super(key, name);
     }
 
     /**
@@ -27,14 +28,6 @@ class EditItem implements UserAction {
         tracker.replace(id, item);
         System.out.print("------------ Заявка заменена ------------");
         System.out.println();
-    }
-
-    /**
-     * Вывод в консоль описания действия.
-     * @return описание действия.
-     */
-    public String info() {
-        return String.format("%s. %s", this.key(), "Edit item.");
     }
 }
 
@@ -58,6 +51,8 @@ public class MenuTracker {
      */
     private UserAction[] actions = new UserAction[7];
 
+    private int position = -1;
+
     /**
      * Конструтор инициализирующий поля.
      * @param input ввод данных.
@@ -73,14 +68,18 @@ public class MenuTracker {
      * @param ui
      */
     public void fillActions(StartUI ui) {
-        this.actions[0] = new AddItem();
-        this.actions[1] = new ShowItems();
-        this.actions[2] = new EditItem();
-        this.actions[3] = new DeleteItems();
-        this.actions[4] = new FindByIdItem();
-        this.actions[5] = new FindByNameItem();
-        this.actions[6] = new Exit(ui);
-        ui.setRange(this.actions.length);
+        this.actions[++this.position] = new AddItem(this.position, "Add new Item.");
+        this.actions[++this.position] = new ShowItems(this.position, "Show all items.");
+        this.actions[++this.position] = new EditItem(this.position, "Edit item.");
+        this.actions[++this.position] = new DeleteItems(this.position, "Delete item.");
+        this.actions[++this.position] = new FindByIdItem(this.position, "Find item by Id.");
+        this.actions[++this.position] = new FindByNameItem(this.position, "Find items by name.");
+        this.actions[++this.position] = new Exit(ui);
+        int[] range = new int[this.actions.length];
+        for (int index = 0; index != range.length; index++) {
+            range[index] = index;
+        }
+        ui.setRange(range);
     }
 
     /**
@@ -105,14 +104,10 @@ public class MenuTracker {
     /**
      * Внутренний класс.
      */
-    private class AddItem implements UserAction {
+    private class AddItem extends BaseAction {
 
-        /**
-         * Действие пользователя.
-         * @return номер действия в меню.
-         */
-        public int key() {
-            return 0;
+        public AddItem(int key, String name) {
+            super(key, name);
         }
 
         /**
@@ -130,27 +125,20 @@ public class MenuTracker {
             System.out.println();
         }
 
-        /**
-         * Вывод в консоль описания действия.
-         * @return описание действия.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Add new Item.");
-        }
-
     }
 
     /**
      * Внутренний класс.
      */
-    private static class ShowItems implements UserAction {
+    private static class ShowItems extends BaseAction {
 
         /**
-         * Действие пользователя.
-         * @return номер действия в меню.
+         * Конструктор класса.
+         * @param key номер действия.
+         * @param name описание действия.
          */
-        public int key() {
-            return 1;
+        public ShowItems(int key, String name) {
+            super(key, name);
         }
 
         /**
@@ -168,28 +156,20 @@ public class MenuTracker {
                 System.out.println();
             }
         }
-
-        /**
-         * Вывод в консоль описания действия.
-         * @return описание действия.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Show all items.");
-        }
-
     }
 
     /**
      * Внутренний класс.
      */
-    private static class DeleteItems implements UserAction {
+    private static class DeleteItems extends BaseAction {
 
         /**
-         * Действие пользователя.
-         * @return номер действия в меню.
+         * Конструктор класса.
+         * @param key номер действия.
+         * @param name описание действия.
          */
-        public int key() {
-            return 3;
+        public DeleteItems(int key, String name) {
+            super(key, name);
         }
 
         /**
@@ -204,28 +184,20 @@ public class MenuTracker {
             System.out.println("---------- Заявка удалена -------------");
             System.out.println();
         }
-
-        /**
-         * Вывод в консоль описания действия.
-         * @return описание действия.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Delete item.");
-        }
-
     }
 
     /**
      * Внутренний класс.
      */
-    private class FindByIdItem implements UserAction {
+    private class FindByIdItem extends BaseAction {
 
         /**
-         * Действие пользователя.
-         * @return номер действия в меню.
+         * Конструктор класса.
+         * @param key номер действия.
+         * @param name описание действия.
          */
-        public int key() {
-            return 4;
+        public FindByIdItem(int key, String name) {
+            super(key, name);
         }
 
         /**
@@ -247,28 +219,20 @@ public class MenuTracker {
                 System.out.println();
             }
         }
-
-        /**
-         * Вывод в консоль описания действия.
-         * @return описание действия.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find item by Id.");
-        }
-
     }
 
     /**
      * Внутренний класс.
      */
-    private class FindByNameItem implements UserAction {
+    private class FindByNameItem extends BaseAction {
 
         /**
-         * Действие пользователя.
-         * @return номер действия в меню.
+         * Конструктор класса.
+         * @param key номер действия.
+         * @param name описание действия.
          */
-        public int key() {
-            return 5;
+        public FindByNameItem(int key, String name) {
+            super(key, name);
         }
 
         /**
@@ -294,15 +258,6 @@ public class MenuTracker {
                 System.out.println();
             }
         }
-
-        /**
-         * Вывод в консоль описания действия.
-         * @return описание действия.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find items by name.");
-        }
-
     }
 
     /**
