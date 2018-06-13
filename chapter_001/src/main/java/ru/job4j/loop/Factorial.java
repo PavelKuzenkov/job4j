@@ -1,5 +1,7 @@
 package ru.job4j.loop;
 
+import java.util.Map;
+
 /**
  * Class Factorial решение задачи части 001 урок 5 4.2.
  *
@@ -19,5 +21,15 @@ public class Factorial {
             factorial = factorial * i;
         }
         return factorial;
+    }
+
+    public static int recursion(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return recursion(n - 1) * n;
+    }
+    public static void main(String[] args) {
+        System.out.println(recursion(10)); // вызов рекурсивной функции
     }
 }
