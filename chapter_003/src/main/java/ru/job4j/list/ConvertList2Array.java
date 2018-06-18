@@ -1,5 +1,6 @@
 package ru.job4j.list;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,9 +25,26 @@ public class ConvertList2Array {
             for (int j = 0; j != cells; j++) {
                 if (index != list.size()) {
                     array[i][j] = list.get(index++);
-                } else array[i][j] = 0;
+                } else {
+                    array[i][j] = 0;
+                }
             }
         }
         return array;
+    }
+
+    /**
+     * Конвертация листа массивов в один лист Integer.
+     * @param list лист массивов.
+     * @return лист Integer.
+     */
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> result = new ArrayList<>();
+        for (int[] part : list) {
+            for (int volume : part) {
+                result.add(volume);
+            }
+        }
+        return result;
     }
 }

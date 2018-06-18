@@ -23,14 +23,16 @@ public class PriorityQueue {
     public void put(Task task) {
         if (this.tasks.isEmpty()) {
             this.tasks.addFirst(task);
-        } else for (int index = 0; index != this.tasks.size(); index++) {
-            if (task.getPriority() <= this.tasks.get(index).getPriority()) {
-                this.tasks.add(index, task);
-                break;
-            }
-            if (index == this.tasks.size() - 1) {
-                this.tasks.addLast(task);
-                break;
+        } else {
+            for (int index = 0; index != this.tasks.size(); index++) {
+                if (task.getPriority() <= this.tasks.get(index).getPriority()) {
+                    this.tasks.add(index, task);
+                    break;
+                }
+                if (index == this.tasks.size() - 1) {
+                    this.tasks.addLast(task);
+                    break;
+                }
             }
         }
     }
