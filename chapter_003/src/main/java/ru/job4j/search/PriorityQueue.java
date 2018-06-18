@@ -28,9 +28,10 @@ public class PriorityQueue {
                 this.tasks.add(index, task);
                 break;
             }
-        }
-        if (!this.tasks.contains(task)) {
-            this.tasks.addLast(task);
+            if (index == this.tasks.size() - 1) {
+                this.tasks.addLast(task);
+                break;
+            }
         }
     }
 
