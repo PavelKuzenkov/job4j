@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -22,7 +24,8 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "testDescription", 123L);
         tracker.add(item);
-        assertThat(tracker.getAll()[0], is(item));
+        ArrayList<Item> result = tracker.getAll();
+        assertThat(result.get(0), is(item));
     }
 
     /**
@@ -52,16 +55,16 @@ public class TrackerTest {
         tracker.add(test2);
         tracker.add(test3);
         tracker.add(test4);
-        Item[] result = tracker.getAll();
-        assertThat(result[0], is(test1));
-        assertThat(result[1], is(test2));
-        assertThat(result[2], is(test3));
-        assertThat(result[3], is(test4));
+        ArrayList<Item> result = tracker.getAll();
+        assertThat(result.get(0), is(test1));
+        assertThat(result.get(1), is(test2));
+        assertThat(result.get(2), is(test3));
+        assertThat(result.get(3), is(test4));
         tracker.delete(test2.getId());
         result = tracker.getAll();
-        assertThat(result[0], is(test1));
-        assertThat(result[1], is(test3));
-        assertThat(result[2], is(test4));
+        assertThat(result.get(0), is(test1));
+        assertThat(result.get(1), is(test3));
+        assertThat(result.get(2), is(test4));
     }
 
     /**
@@ -95,11 +98,11 @@ public class TrackerTest {
         tracker.add(test2);
         tracker.add(test3);
         tracker.add(test4);
-        Item[] result = tracker.findByName("second");
-        assertThat(result[0].getDesc(), is("testDescription2"));
+        ArrayList<Item> result = tracker.findByName("second");
+        assertThat(result.get(0).getDesc(), is("testDescription2"));
         result = tracker.findByName("ir");
-        assertThat(result[0].getDesc(), is("testDescription1"));
-        assertThat(result[1].getDesc(), is("testDescription3"));
+        assertThat(result.get(0).getDesc(), is("testDescription1"));
+        assertThat(result.get(1).getDesc(), is("testDescription3"));
     }
 
 }

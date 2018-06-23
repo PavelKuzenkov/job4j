@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -46,7 +48,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[] {"0", "test name", "desc", "6", "y"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.getAll()[0].getName(), is("test name"));
+        assertThat(tracker.getAll().get(0).getName(), is("test name"));
     }
 
     /**
@@ -91,10 +93,10 @@ public class StartUITest {
         tracker.add(test4);
         Input input = new StubInput(new String[]{"3", test2.getId(), "6", "y"});
         new StartUI(input, tracker).init();
-        Item[] result = tracker.getAll();
-        assertThat(result[0], is(test1));
-        assertThat(result[1], is(test3));
-        assertThat(result[2], is(test4));
+        ArrayList<Item> result = tracker.getAll();
+        assertThat(result.get(0), is(test1));
+        assertThat(result.get(1), is(test3));
+        assertThat(result.get(2), is(test4));
     }
 
     /**
@@ -126,9 +128,9 @@ public class StartUITest {
         tracker.add(test4);
         Input input = new StubInput(new String[]{"5", "ir", "6", "y"});
         new StartUI(input, tracker).init();
-        Item[] result = tracker.findByName("ir");
-        assertThat(result[0].getDesc(), is("testDescription1"));
-        assertThat(result[1].getDesc(), is("testDescription3"));
+        ArrayList<Item> result = tracker.findByName("ir");
+        assertThat(result.get(0).getDesc(), is("testDescription1"));
+        assertThat(result.get(1).getDesc(), is("testDescription3"));
 
     }
 

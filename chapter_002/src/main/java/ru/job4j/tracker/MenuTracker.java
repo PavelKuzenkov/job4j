@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 /**
  * Внешний внутренний класс.
  */
@@ -49,9 +51,7 @@ public class MenuTracker {
     /**
      * Меню.
      */
-    private UserAction[] actions = new UserAction[7];
-
-    private int position = -1;
+    private ArrayList<UserAction> actions;
 
     /**
      * Конструтор инициализирующий поля.
@@ -68,14 +68,14 @@ public class MenuTracker {
      * @param ui
      */
     public void fillActions(StartUI ui) {
-        this.actions[++this.position] = new AddItem(this.position, "Add new Item.");
-        this.actions[++this.position] = new ShowItems(this.position, "Show all items.");
-        this.actions[++this.position] = new EditItem(this.position, "Edit item.");
-        this.actions[++this.position] = new DeleteItems(this.position, "Delete item.");
-        this.actions[++this.position] = new FindByIdItem(this.position, "Find item by Id.");
-        this.actions[++this.position] = new FindByNameItem(this.position, "Find items by name.");
-        this.actions[++this.position] = new Exit(ui);
-        int[] range = new int[this.actions.length];
+        this.actions.add(new AddItem(0, "Add new Item."));
+        this.actions.add(new ShowItems(1, "Show all items."));
+        this.actions.add(new EditItem(2, "Edit item."));
+        this.actions.add(new DeleteItems(3, "Delete item."));
+        this.actions.add(new FindByIdItem(4, "Find item by Id."));
+        this.actions.add(new FindByNameItem(5, "Find items by name."));
+        this.actions.add(new Exit(ui));
+        int[] range = new int[this.actions.size()];
         for (int index = 0; index != range.length; index++) {
             range[index] = index;
         }
@@ -87,7 +87,7 @@ public class MenuTracker {
      * @param key номер действия.
      */
     public void select(int key) {
-        this.actions[key].exicute(this.input, this.tracker);
+        this.actions.get(key).exicute(this.input, this.tracker);
     }
 
     /**
@@ -147,12 +147,12 @@ public class MenuTracker {
          * @param tracker
          */
         public void exicute(Input input, Tracker tracker) {
-            Item[] all = tracker.getAll();
-            for (int index = 0; index != all.length; index++) {
+            ArrayList<Item> all = tracker.getAll();
+            for (int index = 0; index != all.size(); index++) {
                 System.out.println("Заявка №" + (index + 1) + ":");
-                System.out.println("Имя: " + all[index].getName());
-                System.out.println("Описание: " + all[index].getDesc());
-                System.out.println("ID: " + all[index].getId());
+                System.out.println("Имя: " + all.get(index).getName());
+                System.out.println("Описание: " + all.get(index).getDesc());
+                System.out.println("ID: " + all.get(index).getId());
                 System.out.println();
             }
         }
@@ -243,7 +243,7 @@ public class MenuTracker {
         public void exicute(Input input, Tracker tracker) {
             System.out.println("---------- Поиск заявки по имени -------------");
             String name = input.ask("Введите имя заявки: ");
-            Item[] find = tracker.findByName(name);
+            ArrayList<Item> find = tracker.findByName(name);
             if (find != null) {
                 for (Item item: find) {
                     System.out.println("Заявка найдена.");
