@@ -51,7 +51,7 @@ public class MenuTracker {
     /**
      * Меню.
      */
-    private ArrayList<UserAction> actions;
+    private ArrayList<UserAction> actions = new ArrayList<>();
 
     /**
      * Конструтор инициализирующий поля.
@@ -68,12 +68,12 @@ public class MenuTracker {
      * @param ui
      */
     public void fillActions(StartUI ui) {
-        this.actions.add(new AddItem(0, "Add new Item."));
-        this.actions.add(new ShowItems(1, "Show all items."));
-        this.actions.add(new EditItem(2, "Edit item."));
-        this.actions.add(new DeleteItems(3, "Delete item."));
-        this.actions.add(new FindByIdItem(4, "Find item by Id."));
-        this.actions.add(new FindByNameItem(5, "Find items by name."));
+        this.actions.add(new AddItem(this.actions.size(), "Add new Item."));
+        this.actions.add(new ShowItems(this.actions.size(), "Show all items."));
+        this.actions.add(new EditItem(this.actions.size(), "Edit item."));
+        this.actions.add(new DeleteItems(this.actions.size(), "Delete item."));
+        this.actions.add(new FindByIdItem(this.actions.size(), "Find item by Id."));
+        this.actions.add(new FindByNameItem(this.actions.size(), "Find items by name."));
         this.actions.add(new Exit(ui));
         int[] range = new int[this.actions.size()];
         for (int index = 0; index != range.length; index++) {

@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -17,11 +16,6 @@ public class Tracker {
      * Массив для хранение заявок.
      */
     private final ArrayList<Item> items = new ArrayList<>();
-
-//    /**
-//     * Указатель ячейки для новой заявки.
-//     */
-//    private int position = 0;
 
     private static final Random RN = new Random();
 
