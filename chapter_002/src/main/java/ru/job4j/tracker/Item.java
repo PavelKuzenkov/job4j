@@ -55,6 +55,21 @@ public class Item {
         this.created = created;
     }
 
+    /**
+     * Переопредиление метода toString.
+     * @return данные по заявке.
+     */
+    @Override
+    public String toString() {
+        return
+                "Имя: " + this.name
+                .concat(System.lineSeparator())
+                .concat("Описание: " + this.desc)
+                .concat(System.lineSeparator())
+                .concat("ID: " + this.id)
+                .concat(System.lineSeparator());
+    }
+
 
     public void setId(String id) {
         this.id = id;

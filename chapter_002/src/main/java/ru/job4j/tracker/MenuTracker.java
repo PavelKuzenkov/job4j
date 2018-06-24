@@ -148,12 +148,10 @@ public class MenuTracker {
          */
         public void exicute(Input input, Tracker tracker) {
             ArrayList<Item> all = tracker.getAll();
-            for (int index = 0; index != all.size(); index++) {
-                System.out.println("Заявка №" + (index + 1) + ":");
-                System.out.println("Имя: " + all.get(index).getName());
-                System.out.println("Описание: " + all.get(index).getDesc());
-                System.out.println("ID: " + all.get(index).getId());
-                System.out.println();
+            int index = 1;
+            for (Item item : all) {
+                System.out.println("Заявка №" + index++ + ":");
+                System.out.println(item);
             }
         }
     }
@@ -211,9 +209,7 @@ public class MenuTracker {
             Item find = tracker.findById(id);
             if (find != null) {
                 System.out.println("Заявка найдена.");
-                System.out.println("Имя: " + find.getName());
-                System.out.println("Описание: " + find.getDesc());
-                System.out.println();
+                System.out.println(find);
             } else {
                 System.out.println("Заявке не найдена.");
                 System.out.println();
@@ -247,14 +243,11 @@ public class MenuTracker {
             if (find != null) {
                 for (Item item: find) {
                     System.out.println("Заявка найдена.");
-                    System.out.println("Имя: " + item.getName());
-                    System.out.println("Описание: " + item.getDesc());
-                    System.out.println("ID: " + item.getId());
-                    System.out.println();
+                    System.out.println(item);
                 }
 
             } else {
-                System.out.println("Заявке не найдена.");
+                System.out.println("Заявка не найдена.");
                 System.out.println();
             }
         }
