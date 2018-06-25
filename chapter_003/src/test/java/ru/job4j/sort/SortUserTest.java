@@ -30,9 +30,10 @@ public class SortUserTest {
         list.add(new User("Yura", "20"));
         list.add(new User("Petr", "15"));
         Set<User> result = sort.sort(list);
-        int age = 0;
+        int age = 5;
         for (User user : result) {
-            assertThat(Integer.parseInt(user.getAge()), is(age += 5));
+            assertThat(Integer.parseInt(user.getAge()), is(age));
+            age += 5;
         }
     }
 
