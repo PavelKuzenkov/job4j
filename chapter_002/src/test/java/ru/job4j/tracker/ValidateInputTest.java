@@ -47,7 +47,7 @@ public class ValidateInputTest {
         assertThat(
                 this.mem.toString(),
                 is(
-                        String.format("Необходимо ввести корректное значение.\r\n")
+                        "Необходимо ввести корректное значение.".concat(System.lineSeparator())
                 )
         );
     }
