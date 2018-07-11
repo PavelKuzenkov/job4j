@@ -87,6 +87,26 @@ public class Bank {
     }
 
     /**
+     * Find account by name and requisite.
+     * @param passport User's passport number.
+     * @param requisite Account's requisite.
+     * @return Account.
+     */
+    public Account findByNameAndRequisite(String passport, int requisite) {
+        Account result = new Account();
+        for (Map.Entry<User, ArrayList<Account>> e : accounts.entrySet()) {
+            if (e.getKey().getPassport().equals(passport)) {
+                for (Account account : e.getValue()) {
+                    if (account.getRequisites() == requisite) {
+                        result = account;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
      * Transferring money between accounts.
      * @param srcPassport Passport number of sender.
      * @param srcRequisite Account requisites of sender.
@@ -96,24 +116,8 @@ public class Bank {
      * @return 'true' if success or 'false' if not.
      */
     public boolean transferMoney(String srcPassport, int srcRequisite, String destPassport, int dstRequisite, double amount) {
-        Account srcAccount = new Account();
-        Account destAccount = new Account();
-        for (Map.Entry<User, ArrayList<Account>> e : accounts.entrySet()) {
-            if (e.getKey().getPassport().equals(srcPassport)) {
-                for (Account account : e.getValue()) {
-                    if (account.getRequisites() == srcRequisite) {
-                        srcAccount = account;
-                    }
-                }
-            }
-            if (e.getKey().getPassport().equals(destPassport)) {
-                for (Account account : e.getValue()) {
-                    if (account.getRequisites() == dstRequisite) {
-                        destAccount = account;
-                    }
-                }
-            }
-        }
+        Account srcAccount = this.findByNameAndRequisite(srcPassport, srcRequisite);
+        Account destAccount = this.findByNameAndRequisite(destPassport, dstRequisite);
         return srcAccount.transfer(destAccount, amount);
     }
 }
