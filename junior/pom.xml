@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>chapter_01</module>
-        <module>chapter_02</module>
     </modules>
 
 
