@@ -15,7 +15,7 @@
 
 	<modules>
 		<module>junior</module>
-		<module>probationer</module>
+		<module>trainee</module>
 	</modules>
 	
 	<dependencies>
