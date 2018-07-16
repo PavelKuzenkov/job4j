@@ -73,7 +73,9 @@ public class IteratorArray implements Iterator {
         }
             if (this.hasNext()) {
                 result = this.array[range][column++];
-            } else throw new NoSuchElementException("No such element");
+            } else {
+                throw new NoSuchElementException("No such element");
+            }
         return result;
     }
 }
