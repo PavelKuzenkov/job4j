@@ -16,7 +16,7 @@
 	<modules>
 		<module>junior</module>
 		<module>trainee</module>
-	</modules>
+    </modules>
 	
 	<dependencies>
 		<dependency>
