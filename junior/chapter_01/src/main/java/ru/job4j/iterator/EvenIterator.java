@@ -30,12 +30,12 @@ public class EvenIterator implements Iterator {
     }
 
     /**
-     * Checking the number for parity
+     * Checking the number for parity.
      * @param value number.
      * @return "true" if the number is even, or "false" is not.
      */
     private boolean isEven(int value) {
-        return  value % 2 == 0 ? true : false;
+        return  value % 2 == 0;
     }
 
     /**

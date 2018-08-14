@@ -18,7 +18,7 @@ public class BankTest {
         );
         assertThat(
                 new Bank().max(visits),
-                is (
+                is(
                         Arrays.asList(
                                 new Bank.Info(
                                         1, time(8, 10),  time(8, 20)
@@ -36,7 +36,7 @@ public class BankTest {
         );
         assertThat(
                 new Bank().max(visits),
-                is (
+                is(
                         Arrays.asList(
                                 new Bank.Info(
                                         2, time(8, 30),  time(8, 50)
