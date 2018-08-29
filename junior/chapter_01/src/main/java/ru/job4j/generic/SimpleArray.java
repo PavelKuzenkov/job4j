@@ -68,6 +68,21 @@ public class SimpleArray<T> implements Iterable<T> {
     }
 
     /**
+     * Getting the position of object.
+     * @param value object.
+     * @return number of position. If object is not exist, then -1.
+     */
+    public int getPosition(T value) {
+        int result = -1;
+        for (int i = 0; i != this.objects.length; i++) {
+            if (this.objects[i].equals(value)) {
+                result = i;
+            }
+        }
+        return result;
+    }
+
+    /**
      * Overriding iterator method.
      * @return iterator.
      */
@@ -86,7 +101,7 @@ public class SimpleArray<T> implements Iterable<T> {
         /**
          * Position in source array.
          */
-        int index = 0;
+        int position = 0;
 
         /**
          * class constructor.
@@ -100,7 +115,7 @@ public class SimpleArray<T> implements Iterable<T> {
          */
         @Override
         public boolean hasNext() {
-            return index < objects.length;
+            return this.position < objects.length && objects[position + 1] != null;
         }
 
         /**
@@ -112,7 +127,7 @@ public class SimpleArray<T> implements Iterable<T> {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
-            return (T) objects[index++];
+            return (T) objects[this.position++];
         }
     }
 }
