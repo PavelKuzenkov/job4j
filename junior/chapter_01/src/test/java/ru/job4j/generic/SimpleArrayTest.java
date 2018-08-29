@@ -2,6 +2,8 @@ package ru.job4j.generic;
 
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -59,5 +61,24 @@ public class SimpleArrayTest {
         assertThat(result2, is("3"));
         assertThat(result3, is("4"));
         assertThat(result4, is("5"));
+    }
+
+    @Test
+    public void iteratorNextHasNext() {
+        SimpleArray<String> simple = new SimpleArray<String>(4);
+        simple.add("1");
+        simple.add("2");
+        simple.add("3");
+        simple.add("4");
+        Iterator<String> iterator = simple.iterator();
+        assertThat(iterator.hasNext(), is(true));
+        assertThat(iterator.next(), is("1"));
+        assertThat(iterator.hasNext(), is(true));
+        assertThat(iterator.next(), is("2"));
+        assertThat(iterator.hasNext(), is(true));
+        assertThat(iterator.next(), is("3"));
+        assertThat(iterator.hasNext(), is(true));
+        assertThat(iterator.next(), is("4"));
+        assertThat(iterator.hasNext(), is(false));
     }
 }

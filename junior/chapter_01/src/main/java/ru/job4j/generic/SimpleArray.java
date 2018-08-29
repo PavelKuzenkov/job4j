@@ -1,11 +1,14 @@
 package ru.job4j.generic;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * Class SimpleArray.
  * @author Kuzenkov Pavel.
  * @since 15.08.2018.
  */
-public class SimpleArray<T> {
+public class SimpleArray<T> implements Iterable<T> {
 
     /**
      * Source array.
@@ -62,5 +65,54 @@ public class SimpleArray<T> {
      */
     public T get(int position) {
         return (T) this.objects[position];
+    }
+
+    /**
+     * Overriding iterator method.
+     * @return iterator.
+     */
+    @Override
+    public Iterator<T> iterator() {
+        return new IteratorSimpleArray();
+    }
+
+    /**
+     * Class IteratorSimpleArray.
+     * @author Kuzenkov Pavel.
+     * @since 29.08.2018.
+     */
+    private class IteratorSimpleArray implements Iterator<T> {
+
+        /**
+         * Position in source array.
+         */
+        int index = 0;
+
+        /**
+         * class constructor.
+         */
+        public IteratorSimpleArray() {
+        }
+
+        /**
+         * Overriding hasNext method.
+         * @return "true" if iterator has next element, or "false" if not.
+         */
+        @Override
+        public boolean hasNext() {
+            return index < objects.length;
+        }
+
+        /**
+         * Overriding next method.
+         * @return next element.
+         */
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            return (T) objects[index++];
+        }
     }
 }
