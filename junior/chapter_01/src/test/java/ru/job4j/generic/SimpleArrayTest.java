@@ -65,7 +65,7 @@ public class SimpleArrayTest {
 
     @Test
     public void iteratorNextHasNext() {
-        SimpleArray<String> simple = new SimpleArray<String>(4);
+        SimpleArray<String> simple = new SimpleArray<String>(100);
         simple.add("1");
         simple.add("2");
         simple.add("3");

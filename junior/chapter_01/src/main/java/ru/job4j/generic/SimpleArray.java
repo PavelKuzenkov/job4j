@@ -68,18 +68,11 @@ public class SimpleArray<T> implements Iterable<T> {
     }
 
     /**
-     * Getting the position of object.
-     * @param value object.
-     * @return number of position. If object is not exist, then -1.
+     * Return size of source array.
+     * @return size.
      */
-    public int getPosition(T value) {
-        int result = -1;
-        for (int i = 0; i != this.objects.length; i++) {
-            if (this.objects[i].equals(value)) {
-                result = i;
-            }
-        }
-        return result;
+    public int size() {
+        return this.objects.length;
     }
 
     /**
@@ -115,7 +108,7 @@ public class SimpleArray<T> implements Iterable<T> {
          */
         @Override
         public boolean hasNext() {
-            return this.position < objects.length && objects[position + 1] != null;
+            return  objects.length > this.position && objects[position] != null;
         }
 
         /**
