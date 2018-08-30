@@ -70,6 +70,10 @@ public class SimpleArrayTest {
         simple.add("2");
         simple.add("3");
         simple.add("4");
+        simple.add(null);
+        simple.add(null);
+        simple.add(null);
+        simple.add("5");
         Iterator<String> iterator = simple.iterator();
         assertThat(iterator.hasNext(), is(true));
         assertThat(iterator.next(), is("1"));
@@ -79,6 +83,9 @@ public class SimpleArrayTest {
         assertThat(iterator.next(), is("3"));
         assertThat(iterator.hasNext(), is(true));
         assertThat(iterator.next(), is("4"));
+        assertThat(iterator.hasNext(), is(true));
+        assertThat(iterator.next(), is("5"));
         assertThat(iterator.hasNext(), is(false));
+
     }
 }

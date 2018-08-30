@@ -108,7 +108,16 @@ public class SimpleArray<T> implements Iterable<T> {
          */
         @Override
         public boolean hasNext() {
-            return  objects.length > this.position && objects[position] != null;
+            boolean result = false;
+            if (objects.length > this.position) {
+                for (int i = this.position; i != objects.length; i++) {
+                    if (objects[i] != null) {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+            return result;
         }
 
         /**
@@ -117,10 +126,22 @@ public class SimpleArray<T> implements Iterable<T> {
          */
         @Override
         public T next() {
+            T result = null;
             if (!hasNext()) {
                 throw new NoSuchElementException();
+            } else {
+                for (int i = this.position; i != objects.length; i++) {
+                    if (objects[i] != null) {
+                        result = (T) objects[i];
+                        this.position = ++i;
+                        break;
+                    }
+                }
             }
-            return (T) objects[this.position++];
+            if (result == null) {
+                throw new NoSuchElementException();
+            }
+            return result;
         }
     }
 }
