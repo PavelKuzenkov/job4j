@@ -148,9 +148,6 @@ public class DynamicContainer<E> implements Iterable<E> {
                     }
                 }
             }
-            if (result == null) {
-                throw new NoSuchElementException();
-            }
             return result;
         }
 

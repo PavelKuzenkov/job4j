@@ -138,9 +138,6 @@ public class SimpleArray<T> implements Iterable<T> {
                     }
                 }
             }
-            if (result == null) {
-                throw new NoSuchElementException();
-            }
             return result;
         }
     }
