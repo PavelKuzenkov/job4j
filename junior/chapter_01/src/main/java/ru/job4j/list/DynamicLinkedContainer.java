@@ -37,11 +37,23 @@ public class DynamicLinkedContainer<E> implements Iterable<E> {
      * @return object.
      */
     public E get(int index) {
+        return this.getNode(index).date;
+    }
+
+    /**
+     * Getting the node in certain position.
+     * @param index position.
+     * @return node.
+     */
+    public Node<E> getNode(int index) {
+        if (index < 0 || index > this.size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
         Node<E> result = this.first;
         for (int i = 0; i < index; i++) {
             result = result.next;
         }
-        return result.date;
+        return result;
     }
 
     /**
@@ -55,12 +67,23 @@ public class DynamicLinkedContainer<E> implements Iterable<E> {
     /**
      * Deleting first element.
      */
-    public E delete() {
+    public E deleteFirst() {
         E result = this.first.date;
         this.first = this.first.next;
         this.size--;
         return result;
     }
+
+    /**
+     * Deleting last element.
+     */
+    public E deleteLast() {
+        E result = this.get(this.size - 1);
+        this.size--;
+        this.getNode(this.size).next = null;
+        return result;
+    }
+
 
     /**
      * Overriding iterator method.

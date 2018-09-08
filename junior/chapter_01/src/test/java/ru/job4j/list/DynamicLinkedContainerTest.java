@@ -34,10 +34,18 @@ public class DynamicLinkedContainerTest {
 
     @Test
     public void whenDeleteFirstElementThenUseGetResultTwo() {
-        assertThat(list.delete(), is(3));
+        assertThat(list.deleteFirst(), is(3));
         assertThat(list.getSize(), is(2));
         assertThat(list.get(0), is(2));
         assertThat(list.get(1), is(1));
+    }
+
+    @Test
+    public void whenDeleteLastElementThenUseGetResultTwo() {
+        assertThat(list.deleteLast(), is(1));
+        assertThat(list.getSize(), is(2));
+        assertThat(list.get(0), is(3));
+        assertThat(list.get(1), is(2));
     }
 
     @Test
@@ -54,8 +62,8 @@ public class DynamicLinkedContainerTest {
 
     @Test
     public void nextAndHasNextWhenOneElement() {
-        list.delete();
-        list.delete();
+        list.deleteFirst();
+        list.deleteFirst();
         Iterator iterator = list.iterator();
         assertThat(iterator.hasNext(), is(true));
         assertThat(iterator.next(), is(1));
@@ -64,9 +72,9 @@ public class DynamicLinkedContainerTest {
 
     @Test
     public void nextAndHasNextWhenNoElements() {
-        list.delete();
-        list.delete();
-        list.delete();
+        list.deleteFirst();
+        list.deleteFirst();
+        list.deleteFirst();
         Iterator iterator = list.iterator();
         assertThat(iterator.hasNext(), is(false));
     }
