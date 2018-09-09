@@ -25,6 +25,7 @@ public class DynamicLinkedContainerTest {
     @Test
     public void whenAddThreeElementsThenUseGetOneResultTwo() {
         assertThat(list.get(1), is(2));
+        assertThat(list.get(2), is(1));
     }
 
     @Test
@@ -108,6 +109,18 @@ public class DynamicLinkedContainerTest {
         assertThat(iterator.next(), is(1));
         assertThat(iterator.hasNext(), is(false));
         iterator.next();
+    }
+
+    @Test
+    public void whenCycledThenTrue() {
+        list.add(4);
+        list.cycle(3);
+        assertThat(list.hasCycle(list.getNode(0)), is(true));
+    }
+
+    @Test
+    public void whenNotCycledThenFalse() {
+        assertThat(list.hasCycle(list.getNode(0)), is(false));
     }
 
 }

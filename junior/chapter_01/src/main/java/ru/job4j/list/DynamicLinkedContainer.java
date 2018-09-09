@@ -46,9 +46,7 @@ public class DynamicLinkedContainer<E> implements Iterable<E> {
      * @return node.
      */
     public Node<E> getNode(int index) {
-        if (index < 0 || index > this.size) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
+        this.outOfSize(index);
         Node<E> result = this.first;
         for (int i = 0; i < index; i++) {
             result = result.next;
@@ -84,6 +82,38 @@ public class DynamicLinkedContainer<E> implements Iterable<E> {
         return result;
     }
 
+    private void outOfSize(int index) {
+        if (index < 0 || index > this.size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+    }
+
+    public void cycle(int index) {
+        this.outOfSize(index);
+        this.getNode(index).next = this.first;
+    }
+
+    public boolean hasCycle(Node<E> first) {
+        boolean result = false;
+        Node<E> temp = first;
+        for (int i = 0; i < this.size - 1; i++) {
+            for (int j = i; j < this.size - 1; j++) {
+                if (first.next == null) {
+                    break;
+                }
+                temp = temp.next;
+                if (first == temp) {
+                    result = true;
+                    break;
+                }
+            }
+            if (result || first.next == null) {
+                break;
+            }
+            first = first.next;
+        }
+        return result;
+    }
 
     /**
      * Overriding iterator method.
