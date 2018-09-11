@@ -82,6 +82,7 @@ public class DynamicLinkedContainer<E> implements Iterable<E> {
         return result;
     }
 
+
     private void outOfSize(int index) {
         if (index < 0 || index > this.size) {
             throw new ArrayIndexOutOfBoundsException();
@@ -95,22 +96,18 @@ public class DynamicLinkedContainer<E> implements Iterable<E> {
 
     public boolean hasCycle(Node<E> first) {
         boolean result = false;
-        Node<E> temp = first;
-        for (int i = 0; i < this.size - 1; i++) {
-            for (int j = i; j < this.size - 1; j++) {
-                if (first.next == null) {
-                    break;
-                }
-                temp = temp.next;
-                if (first == temp) {
-                    result = true;
-                    break;
-                }
-            }
-            if (result || first.next == null) {
+        Node<E> turtle  = first;
+        Node<E> hare = first;
+        while (turtle != null && hare != null && hare.next != null) {
+            turtle = turtle.next;
+            hare = hare.next.next;
+            if (turtle == null || hare == null) {
                 break;
             }
-            first = first.next;
+            if (turtle == hare) {
+                result = true;
+                break;
+            }
         }
         return result;
     }
