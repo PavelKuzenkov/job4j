@@ -38,6 +38,7 @@ public class DynamicContainer<E> implements Iterable<E> {
     /**
      * Adding a new object to array.
      * @param value new object.
+     * @return "true" if added or "false" if not.
      */
     public boolean add(E value) {
         if (this.position == this.container.length - 1) {
@@ -66,6 +67,22 @@ public class DynamicContainer<E> implements Iterable<E> {
     }
 
     /**
+     * Checking for the object in container.
+     * @param value object.
+     * @return "true" if has, or "false" if not.
+     */
+    public boolean has(E value) {
+        boolean result = false;
+        for (int i = 0; i != this.container.length; i++) {
+            if (this.container[i] != null && this.container[i].equals(value)) {
+                 result = true;
+                 break;
+            }
+        }
+        return result;
+    }
+
+    /**
      * Increases the capacity.
      */
     private void grow() {
@@ -74,7 +91,6 @@ public class DynamicContainer<E> implements Iterable<E> {
         this.container = newContainer;
         this.modCount++;
     }
-
 
     /**
      * Overriding iterator method.
