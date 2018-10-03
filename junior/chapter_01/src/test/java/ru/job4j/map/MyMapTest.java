@@ -23,7 +23,6 @@ public class MyMapTest {
         map2.put(user1, "user1");
         map2.put(user1, "user2");
         System.out.println(map2);
-
     }
 
 }
