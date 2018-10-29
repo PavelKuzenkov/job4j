@@ -48,7 +48,13 @@ public class StartUI {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions(this);
         while (!this.exit) {
-            menu.show();
+//            menu.show();
+            menu.show((a) -> {
+                System.out.println("Меню.");
+                for (UserAction action : a) {
+                    System.out.println(action.info());
+                }
+            });
             menu.select(input.ask("Select: ", this.range));
         }
     }

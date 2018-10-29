@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * Внешний внутренний класс.
@@ -93,13 +95,16 @@ public class MenuTracker {
     /**
      * Вывод меню в консоль.
      */
-    public void show() {
-        for (UserAction action : this.actions) {
-            if (action != null) {
-                System.out.println(action.info());
-            }
-        }
+    public void show(Consumer<List<UserAction>> consumer) {
+        consumer.accept(this.actions);
     }
+//    public void show() {
+//        for (UserAction action : this.actions) {
+//            if (action != null) {
+//                System.out.println(action.info());
+//            }
+//        }
+//    }
 
     /**
      * Внутренний класс.
