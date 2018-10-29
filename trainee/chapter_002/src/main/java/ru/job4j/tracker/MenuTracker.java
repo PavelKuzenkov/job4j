@@ -98,13 +98,6 @@ public class MenuTracker {
     public void show(Consumer<List<UserAction>> consumer) {
         consumer.accept(this.actions);
     }
-//    public void show() {
-//        for (UserAction action : this.actions) {
-//            if (action != null) {
-//                System.out.println(action.info());
-//            }
-//        }
-//    }
 
     /**
      * Внутренний класс.
